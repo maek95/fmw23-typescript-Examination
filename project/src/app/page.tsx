@@ -12,10 +12,50 @@ yum-4wOFSa0vV0WtlFYK
 }
 */
 
-export default function Home() {
+import Menu from "@/components/menu/Menu";
+import NavBar from "@/components/NavBar";
+import { Dip, Drink, Wonton } from "@/types/types";
+import { url } from "@/utils/utils";
+
+export default async function Home() {
+  let foodData: Wonton[] = [];
+  try {
+    const response = await fetch(`${url}/api/getMenuByType/wonton`, {}); // GET
+    foodData = await response.json();
+  } catch (error) {
+    console.error("Error fetching /api/getMenuByType/wonton:", error);
+  }
+
+  let drinksData: Drink[] = [];
+  try {
+    const response = await fetch(`${url}/api/getMenuByType/drink`, {}); // GET
+    drinksData = await response.json();
+  } catch (error) {
+    console.error("Error fetching /api/getMenuByType/drink:", error);
+  }
+
+  let dipsData: Dip[] = [];
+  try {
+    const response = await fetch(`${url}/api/getMenuByType/dip`, {}); // GET
+    dipsData = await response.json();
+  } catch (error) {
+    console.error("Error fetching /api/getMenuByType/dip:", error);
+  }
+
   return (
-    <div>
-      <h1>hej</h1>
+    <div className="w-full">
+      <NavBar />
+
+      <main className="flex flex-col w-full text-start px-4 pb-6 box-border">
+        <h1
+          className="text-[#F4F3F1F0] custom-text-shadow"
+          //style={{ textShadow: "2px 2px #000000" }}
+        >
+          Meny
+        </h1>
+
+        <Menu foodData={foodData} drinksData={drinksData} dipsData={dipsData} />
+      </main>
     </div>
   );
 }

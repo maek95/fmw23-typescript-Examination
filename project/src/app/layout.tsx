@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import NavBar from "@/components/NavBar";
+import { CartContextProvider } from "@/context/cartContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,11 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html className="bg-[#489078]" lang="en">
+      <body className={`font-firaSans`}>
+        <CartContextProvider>{children}</CartContextProvider>
       </body>
     </html>
   );
