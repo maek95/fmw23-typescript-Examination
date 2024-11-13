@@ -21,7 +21,10 @@ export default function DipsOrDrinksMenu({ data }: { data: Drink[] | Dip[] }) {
       <div className="flex flex-wrap gap-2">
         {data &&
           data.map((dipOrDrink) => (
-            <ButtonIngredient title={dipOrDrink.name} />
+            <ButtonIngredient
+              dipOrDrinkObj={dipOrDrink}
+              title={dipOrDrink.name}
+            />
           ))}
       </div>
     </div>
