@@ -7,7 +7,7 @@ export async function GET(
   {
     params,
   }: {
-    params: { type: ProductType };
+    params: { type: string }; // ProductType did not work
   }
 ) {
   //const httpsAgent = new https.Agent({rejectUnauthorized: false});
