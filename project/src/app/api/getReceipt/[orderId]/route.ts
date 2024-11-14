@@ -2,14 +2,7 @@ import { Order, Receipt } from "@/types/types";
 import { apiKey, tenantId } from "@/utils/utils";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(
-  req: NextRequest
-  /* {
-    params,
-  }: {
-    params: { orderId: string };
-  } */
-) {
+export async function GET(req: NextRequest) {
   /*   const url = new URL(req.url);
 
   const orderId = url.searchParams.get("orderId"); */

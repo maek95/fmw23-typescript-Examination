@@ -2,15 +2,7 @@ import { Dip, Drink, ProductType, Wonton } from "@/types/types";
 import { apiKey } from "@/utils/utils";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(
-  req: NextRequest
-  /* {
-    params,
-  }: {
-    params: { type: string }; // ProductType did not work
-  } */
-  // context: any // Accessing `type` from params
-) {
+export async function GET(req: NextRequest) {
   //const params = req.nextUrl.searchParams
   /* const { searchParams } = new URL(req.url);
   const type = searchParams.get("type"); */
