@@ -3,17 +3,20 @@ import { apiKey } from "@/utils/utils";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
-  req: NextRequest,
-  {
+  req: NextRequest
+  /* {
     params,
   }: {
     params: { type: string }; // ProductType did not work
-  }
+  } */
 ) {
+  //const params = req.nextUrl.searchParams
+  const { searchParams } = new URL(req.url);
+  const type: string | null = searchParams.get("type");
   //const httpsAgent = new https.Agent({rejectUnauthorized: false});
   // const type = await params.type.toString();
-  const { type } = await params; // it says that await does nothing, but it removes an error in the terminal that I access perams before awaiting??
-  const typeStringFormat = type.toString();
+  // const { type } = await params; // it says that await does nothing, but it removes an error in the terminal that I access perams before awaiting??
+  const typeStringFormat = type?.toString();
   // const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   // console.log("apiKey handler:", apiKey);
 
