@@ -10,9 +10,11 @@ export async function GET(
     params: { orderId: string };
   } */
 ) {
-  const url = new URL(req.url);
+  /*   const url = new URL(req.url);
 
-  const orderId = url.searchParams.get("orderId");
+  const orderId = url.searchParams.get("orderId"); */
+  const url = new URL(req.url);
+  const orderId = url.pathname.split("/").pop();
 
   /* const { searchParams } = new URL(req.url);
   const orderId = searchParams.get("orderId"); */

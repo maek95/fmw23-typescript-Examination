@@ -20,10 +20,11 @@ export async function GET(
   // const typeStringFormat = type?.toString();
   // const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   // console.log("apiKey handler:", apiKey);
-
   const url = new URL(req.url);
+  const type = url.pathname.split("/").pop();
+  /* const url = new URL(req.url);
 
-  const type = url.searchParams.get("type");
+  const type = url.searchParams.get("type"); */
   // const { type } = context.params;
 
   try {
