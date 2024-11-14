@@ -3,14 +3,16 @@ import { apiKey, tenantId } from "@/utils/utils";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
-  req: NextRequest,
-  {
+  req: NextRequest
+  /* {
     params,
   }: {
     params: { orderId: string };
-  }
+  } */
 ) {
-  const { orderId } = await params; // it says that await does nothing, but it removes an error in the terminal that I access perams before awaiting??
+  const { searchParams } = new URL(req.url);
+  const orderId: string | null = searchParams.get("orderId");
+  // const { orderId } = await params; // it says that await does nothing, but it removes an error in the terminal that I access perams before awaiting??
 
   if (!orderId) {
     return NextResponse.json(
