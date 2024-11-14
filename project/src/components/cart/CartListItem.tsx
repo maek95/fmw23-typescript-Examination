@@ -24,9 +24,9 @@ export default function CartListItem({
       }`}
     >
       <div className="flex justify-between w-full">
-        <h2 className="text-[#353131]">{cartItem.item.name}</h2>
+        <h2 className="text-[#353131] font-bold">{cartItem.item.name}</h2>
         <span className="flex-grow mx-2  border-dotted border-t-0 border-l-0 border-r-0 border-b-[1px] border-[#353131] box-border"></span>
-        <h2 className="text-[#353131]">{cartItem.item.price} SEK</h2>
+        <h2 className="text-[#353131] font-bold">{cartItem.item.price} SEK</h2>
       </div>
       <div className="flex gap-4">
         <button

@@ -38,7 +38,7 @@ export default function FoodMenuItem({
       onClick={() =>
         addToCart(foodObj)
       } /* TODO: rounded-xl here is not optimal, but MenuContainer rounded-xl doesnt seem to override the FoodMenuItem corners? */
-      className={`cursor-pointer w-full rounded-xl box-border  flex flex-col justify-center gap-2 p-4 border-[#F1F0EC3D] bg-${
+      className={`cursor-pointer w-full box-border  flex flex-col justify-center gap-2 p-4 border-[#F1F0EC3D] bg-${
         addedToCart ? "[#353131]" : "[#605858]"
       } border-dotted border-r-0 border-t-0 border-l-0 ${
         noBorderBottom && "border-b-0"
