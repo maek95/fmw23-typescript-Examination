@@ -42,7 +42,7 @@ export default function ReceiptModal({ orderId }: { orderId: string }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 w-full box-border">
+      <div className="flex flex-col gap-4 w-full box-border pt-4">
         <ButtonDarkLarge
           title="GÖR EN NY BESTÄLLNING"
           onClick={() => router.push("/")}
