@@ -32,6 +32,21 @@ export async function GET(req: NextRequest) {
       }
     );
 
+    // Check if the response is JSON
+    const contentType = response.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      // Log the response text for debugging
+      const text = await response.text();
+      console.error("Non-JSON response from external API:", text);
+      return NextResponse.json(
+        {
+          error: "Received non-JSON response from external API",
+          details: text,
+        },
+        { status: 500 }
+      );
+    }
+
     const data = await response.json();
     const items = data.items as (Wonton | Dip | Drink)[];
     // console.log("data:", data);
