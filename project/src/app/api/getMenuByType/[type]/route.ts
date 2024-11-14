@@ -12,7 +12,7 @@ export async function GET(
 ) {
   //const params = req.nextUrl.searchParams
   const { searchParams } = new URL(req.url);
-  const type: string | null = searchParams.get("type");
+  const type = searchParams.get("type");
   //const httpsAgent = new https.Agent({rejectUnauthorized: false});
   // const type = await params.type.toString();
   // const { type } = await params; // it says that await does nothing, but it removes an error in the terminal that I access perams before awaiting??

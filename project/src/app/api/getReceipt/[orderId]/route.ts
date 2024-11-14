@@ -11,7 +11,7 @@ export async function GET(
   } */
 ) {
   const { searchParams } = new URL(req.url);
-  const orderId: string | null = searchParams.get("orderId");
+  const orderId = searchParams.get("orderId");
   // const { orderId } = await params; // it says that await does nothing, but it removes an error in the terminal that I access perams before awaiting??
 
   if (!orderId) {
