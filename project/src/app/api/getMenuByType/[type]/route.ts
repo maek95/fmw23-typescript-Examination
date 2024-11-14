@@ -11,18 +11,18 @@ export async function GET(
   } */
 ) {
   //const params = req.nextUrl.searchParams
-  const { searchParams } = new URL(req.url);
-  const type = searchParams.get("type");
+  /*  const { searchParams } = new URL(req.url);
+  const type = searchParams.get("type"); */
   //const httpsAgent = new https.Agent({rejectUnauthorized: false});
   // const type = await params.type.toString();
   // const { type } = await params; // it says that await does nothing, but it removes an error in the terminal that I access perams before awaiting??
-  // const typeStringFormat = type.toString();
+  // const typeStringFormat = type?.toString();
   // const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   // console.log("apiKey handler:", apiKey);
-  /*   const url = new URL(req.url);
+  const url = new URL(req.url);
   const type = url.pathname.split("/").pop();
 
-  const typeStringFormat = type?.toString(); */
+  const typeStringFormat = type?.toString();
   /* const url = new URL(req.url);
 
   const type = url.searchParams.get("type"); */
@@ -30,7 +30,7 @@ export async function GET(
 
   try {
     const response = await fetch(
-      `https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=${type}`,
+      `https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=${typeStringFormat}`,
       {
         headers: {
           accept: "application/json",
