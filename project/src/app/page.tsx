@@ -20,15 +20,24 @@ import { url } from "@/utils/utils";
 export default async function Home() {
   let foodData: Wonton[] = [];
   try {
-    const response = await fetch(`${url}/api/getMenuByType/wonton`, {}); // GET
+    const response = await fetch(`${url}/api/getMenuByType/wonton`, {
+      headers: {
+        accept: "application/json",
+      },
+    }); // GET
     foodData = await response.json();
+    console.log("foodData", foodData);
   } catch (error) {
     console.error("Error fetching /api/getMenuByType/wonton:", error);
   }
 
   let drinksData: Drink[] = [];
   try {
-    const response = await fetch(`${url}/api/getMenuByType/drink`, {}); // GET
+    const response = await fetch(`${url}/api/getMenuByType/drink`, {
+      headers: {
+        accept: "application/json",
+      },
+    }); // GET
     drinksData = await response.json();
   } catch (error) {
     console.error("Error fetching /api/getMenuByType/drink:", error);
@@ -36,7 +45,11 @@ export default async function Home() {
 
   let dipsData: Dip[] = [];
   try {
-    const response = await fetch(`${url}/api/getMenuByType/dip`, {}); // GET
+    const response = await fetch(`${url}/api/getMenuByType/dip`, {
+      headers: {
+        accept: "application/json",
+      },
+    }); // GET
     dipsData = await response.json();
   } catch (error) {
     console.error("Error fetching /api/getMenuByType/dip:", error);

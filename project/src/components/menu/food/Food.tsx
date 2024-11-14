@@ -4,6 +4,8 @@ import MenuContainer from "../MenuContainer";
 import FoodMenuItem from "./FoodMenuItem";
 
 export default function Food({ foodData }: { foodData: Wonton[] }) {
+  console.log("foodData:", foodData);
+
   return (
     <MenuContainer>
       {foodData.map((foodObj, index) => {
