@@ -8,6 +8,7 @@ export async function GET(req: NextRequest) {
   const orderId = url.searchParams.get("orderId"); */
   const url = new URL(req.url);
   const orderId = url.pathname.split("/").pop();
+  const orderIdStringFormat = orderId?.toString();
 
   /* const { searchParams } = new URL(req.url);
   const orderId = searchParams.get("orderId"); */
@@ -22,7 +23,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const response = await fetch(
-      `https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/receipts/${orderId}`,
+      `https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/receipts/${orderIdStringFormat}`,
       {
         headers: {
           accept: "application/json",

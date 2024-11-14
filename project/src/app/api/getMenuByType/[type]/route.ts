@@ -14,6 +14,8 @@ export async function GET(req: NextRequest) {
   // console.log("apiKey handler:", apiKey);
   const url = new URL(req.url);
   const type = url.pathname.split("/").pop();
+
+  const typeStringFormat = type?.toString();
   /* const url = new URL(req.url);
 
   const type = url.searchParams.get("type"); */
@@ -21,7 +23,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const response = await fetch(
-      `https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=${type}`,
+      `https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu?type=${typeStringFormat}`,
       {
         headers: {
           accept: "application/json",
