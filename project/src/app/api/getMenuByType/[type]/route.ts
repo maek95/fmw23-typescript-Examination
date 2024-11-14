@@ -7,7 +7,7 @@ export async function GET(
   {
     params,
   }: {
-    params: { type: ProductType.drink | ProductType.dip | ProductType.wonton };
+    params: { type: ProductType };
   }
 ) {
   //const httpsAgent = new https.Agent({rejectUnauthorized: false});
