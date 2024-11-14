@@ -67,13 +67,15 @@ export default async function Home() {
           Meny
         </h1>
 
-        {foodData && drinksData && dipsData && (
-          <Menu
-            foodData={foodData}
-            drinksData={drinksData}
-            dipsData={dipsData}
-          />
-        )}
+        {foodData.length > 0 &&
+          drinksData.length > 0 &&
+          dipsData.length > 0 && (
+            <Menu
+              foodData={foodData}
+              drinksData={drinksData}
+              dipsData={dipsData}
+            />
+          )}
       </main>
     </div>
   );
