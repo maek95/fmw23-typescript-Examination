@@ -1,7 +1,7 @@
 import { Wonton } from "@/types/types";
 import MenuContainer from "../MenuContainer";
 
-import FoodMenuItem from "./FoodItem";
+import FoodMenuItem from "./FoodMenuItem";
 
 export default function Food({ foodData }: { foodData: Wonton[] }) {
   return (

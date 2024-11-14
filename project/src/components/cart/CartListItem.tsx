@@ -19,13 +19,13 @@ export default function CartListItem({
 
   return (
     <div /* h-24 ?? */
-      className={`w-full flex flex-col justify-center gap-2 py-4 border-[#F1F0EC3D] text-[#353131] border-dotted border-r-0 border-t-0 border-l-0 ${
-        noBorderBottom && "border-b-0"
+      className={`w-full box-border flex flex-col justify-center gap-2 py-4 border-[#3531313D] text-[#353131] border-dotted  border-r-0 border-t-0 border-l-0 ${
+        noBorderBottom ? "border-b-0" : ""
       }`}
     >
       <div className="flex justify-between w-full">
         <h2 className="text-[#353131]">{cartItem.item.name}</h2>
-        <span className="flex-grow mx-2  border-dotted border-t-0 border-l-0 border-r-0 border-b-4 border-[#353131]"></span>
+        <span className="flex-grow mx-2  border-dotted border-t-0 border-l-0 border-r-0 border-b-[1px] border-[#353131] box-border"></span>
         <h2 className="text-[#353131]">{cartItem.item.price} SEK</h2>
       </div>
       <div className="flex gap-4">
@@ -38,7 +38,7 @@ export default function CartListItem({
         <p className="text-[#353131]">{cartItem.amount} stycken</p>
         <button
           onClick={() => deleteFromCart(cartItem.item)}
-          className="w-6 h-6 rounded-full bg-[#3531313D] border-none"
+          className="w-6 h-6 rounded-full bg-[#3531313D] border-none box-border"
         >
           <span className="text-[#222222]">-</span>
         </button>

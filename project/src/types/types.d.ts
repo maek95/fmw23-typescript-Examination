@@ -36,19 +36,27 @@ enum OrderState {
 }
 
 export type Order = {
-  id: number;
+  id: string;
   items: ProductType[];
   orderValue: number;
-  eta: number;
+  eta: string;
   timestamp: string;
   state: OrderState;
+};
+
+export type ReceiptItem = {
+  id: number;
+  name: string;
+  type: ProductType;
+  quantity: number; // number of same items
+  price: number; // total price of items in SEK
 };
 
 export type Receipt = {
   id: string;
   orderValue: number;
   timestamp: string;
-  items: Order[];
+  items: ReceiptItem[];
 };
 
 /* export type Key = {

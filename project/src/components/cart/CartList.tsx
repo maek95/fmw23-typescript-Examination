@@ -7,7 +7,7 @@ export default function CartList() {
   const { cartItems } = useContext(CartContext);
 
   return (
-    <section className="w-full box-border flex flex-col px-2">
+    <section className="w-full box-border flex flex-col px-2 pb-4">
       {cartItems.map((item, index) => (
         <CartListItem key={index} cartItem={item} />
       ))}

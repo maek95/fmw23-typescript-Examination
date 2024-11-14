@@ -6,8 +6,6 @@ export default function CartLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-[#F4F3F1F0] h-dvh">
-      <NavBar /> {children}
-    </div>
+    <div className="bg-[#F4F3F1F0]  min-h-dvh box-border ">{children}</div>
   );
 }
