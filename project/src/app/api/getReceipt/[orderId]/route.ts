@@ -9,7 +9,7 @@ export async function GET(
   }: {
     params: { orderId: string };
   } */
-  context: { params: { orderId: string } } // Accessing `type` from params
+  context
 ) {
   /* const { searchParams } = new URL(req.url);
   const orderId = searchParams.get("orderId"); */

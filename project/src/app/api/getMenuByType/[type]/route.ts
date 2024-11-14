@@ -9,7 +9,7 @@ export async function GET(
   }: {
     params: { type: string }; // ProductType did not work
   } */
-  context: { params: { type: string } } // Accessing `type` from params
+  context: any // Accessing `type` from params
 ) {
   //const params = req.nextUrl.searchParams
   /* const { searchParams } = new URL(req.url);
