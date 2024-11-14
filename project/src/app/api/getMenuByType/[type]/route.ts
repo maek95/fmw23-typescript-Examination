@@ -3,13 +3,13 @@ import { apiKey } from "@/utils/utils";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
-  req: NextRequest,
+  req: NextRequest
   /* {
     params,
   }: {
     params: { type: string }; // ProductType did not work
   } */
-  context: any // Accessing `type` from params
+  // context: any // Accessing `type` from params
 ) {
   //const params = req.nextUrl.searchParams
   /* const { searchParams } = new URL(req.url);
@@ -21,7 +21,10 @@ export async function GET(
   // const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   // console.log("apiKey handler:", apiKey);
 
-  const { type } = context.params;
+  const url = new URL(req.url);
+
+  const type = url.searchParams.get("type");
+  // const { type } = context.params;
 
   try {
     const response = await fetch(
