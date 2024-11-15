@@ -1,3 +1,4 @@
+"use client";
 /* http://yumyum-assets.s3-website.eu-north-1.amazonaws.com
 
 // api generated:
@@ -16,9 +17,66 @@ import Menu from "@/components/menu/Menu";
 import NavBar from "@/components/NavBar";
 import { Dip, Drink, Wonton } from "@/types/types";
 import { url } from "@/utils/utils";
+import { useEffect, useState } from "react";
 
-export default async function Home() {
-  let foodData: Wonton[] = [];
+// TODO: I might have to make this client-side to not have to use 'url'... makes it hard to build on vercel...?
+export default function Home() {
+  const [foodData, setFoodData] = useState<Wonton[]>();
+  const [drinksData, setDrinksData] = useState<Drink[]>();
+  const [dipsData, setDipsData] = useState<Dip[]>();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch(`/api/getMenuByType/wonton`, {
+          headers: {
+            accept: "application/json", //
+          },
+        }); // GET
+        const data = await response.json();
+        //console.log("foodData", foodData);
+        setFoodData(data);
+      } catch (error) {
+        console.error("Error fetching /api/getMenuByType/wonton:", error);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch(`/api/getMenuByType/drink`, {
+          headers: {
+            accept: "application/json", //
+          },
+        }); // GET
+        const data = await response.json();
+        //console.log("foodData", foodData);
+        setDrinksData(data);
+      } catch (error) {
+        console.error("Error fetching /api/getMenuByType/drink:", error);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch(`/api/getMenuByType/dip`, {
+          headers: {
+            accept: "application/json", //
+          },
+        }); // GET
+        const data = await response.json();
+        //console.log("foodData", foodData);
+        setDipsData(data);
+      } catch (error) {
+        console.error("Error fetching /api/getMenuByType/dip:", error);
+      }
+    })();
+  }, []);
+
+  /* let foodData: Wonton[] = [];
   try {
     const response = await fetch(`${url}/api/getMenuByType/wonton`, {
       headers: {
@@ -53,7 +111,7 @@ export default async function Home() {
     dipsData = await response.json();
   } catch (error) {
     console.error("Error fetching /api/getMenuByType/dip:", error);
-  }
+  } */
 
   return (
     <div className="w-full">
@@ -67,7 +125,10 @@ export default async function Home() {
           Meny
         </h1>
 
-        {foodData.length > 0 &&
+        {foodData &&
+          drinksData &&
+          dipsData &&
+          foodData.length > 0 &&
           drinksData.length > 0 &&
           dipsData.length > 0 && (
             <Menu
