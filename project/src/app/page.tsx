@@ -22,7 +22,7 @@ export default async function Home() {
   try {
     const response = await fetch(`${url}/api/getMenuByType/wonton`, {
       headers: {
-        accept: "application/json",
+        accept: "application/json", //
       },
     }); // GET
     foodData = await response.json();
