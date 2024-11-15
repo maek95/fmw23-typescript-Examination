@@ -5,6 +5,7 @@ import { Order } from "@/types/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import ReceiptModal from "../receipt-modal/ReceiptModal";
+import { useRouter } from "next/navigation";
 
 export default function EtaModal({
   orderConfirmation,
@@ -16,6 +17,7 @@ export default function EtaModal({
   setOpenReceiptModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [etaMinutes, setEtaMinutes] = useState<number>();
+  const router = useRouter();
 
   useEffect(() => {
     setEtaMinutes(calculateEtaMinutes);
@@ -54,7 +56,7 @@ export default function EtaModal({
         />
         <ButtonDarkLarge
           title="GÖR EN NY BESTÄLLNING"
-          onClick={() => console.log("hej")}
+          onClick={() => router.push("/")}
         />
       </div>
     </div>
