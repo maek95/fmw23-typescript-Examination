@@ -82,13 +82,15 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
   }
 
   function deleteFromCart(item: Wonton | Drink | Dip) {
-    const updatedCartItems = cartItems.map((cartItem) => {
-      if (cartItem.item.id === item.id) {
-        return { ...cartItem, amount: cartItem.amount - 1 };
-      } else {
-        return cartItem;
-      }
-    });
+    const updatedCartItems = cartItems
+      .map((cartItem) => {
+        if (cartItem.item.id === item.id) {
+          return { ...cartItem, amount: cartItem.amount - 1 };
+        } else {
+          return cartItem;
+        }
+      })
+      .filter((cartItem) => cartItem.amount > 0); // if I dont have this filter the cartItem will stay in the cartItems array even if the amount is negative
 
     setCartItems(updatedCartItems);
   }

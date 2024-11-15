@@ -1,10 +1,13 @@
 "use client";
+import { CartContext } from "@/context/cartContext";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function NavBar() {
   const [isScrolledDown, setIsScrolledDown] = useState(false);
+  const { cartItemIds } = useContext(CartContext);
+  const cartAmount = cartItemIds.length;
 
   useEffect(() => {
     function handleScroll() {
@@ -38,13 +41,20 @@ export default function NavBar() {
         />
       </Link>
       <Link href={"/cart"}>
-        <Image
-          src={"/cartbtn.svg"}
-          alt="cartbtn"
-          height={100}
-          width={100}
-          className="bg-[#F4F3F1F0] rounded-xl"
-        />
+        <div className="relative">
+          <Image
+            src={"/cartbtn.svg"}
+            alt="cartbtn"
+            height={100}
+            width={100}
+            className="bg-[#F4F3F1F0] rounded-xl"
+          />
+          {cartAmount > 0 && (
+            <div className="absolute h-10 w-10 rounded-full bg-red-500 -top-3 -right-3 text-white flex items-center justify-center">
+              {cartAmount}
+            </div>
+          )}
+        </div>
       </Link>
     </nav>
   );
