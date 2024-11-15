@@ -12,7 +12,7 @@ export type Wonton = {
   price: number;
   ingredients: string[];
 };
-
+//
 export type Dip = {
   id: number;
   type: ProductType.dip;
