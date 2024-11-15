@@ -31,14 +31,14 @@ export default function CartListItem({
       <div className="flex gap-4">
         <button
           onClick={() => addToCart(cartItem.item)}
-          className="w-6 h-6 rounded-full bg-[#3531313D] border-none"
+          className="w-6 h-6 rounded-full bg-[#3531313D] border-none cursor-pointer"
         >
           <span className="text-[#222222]">+</span>
         </button>
         <p className="text-[#353131]">{cartItem.amount} stycken</p>
         <button
           onClick={() => deleteFromCart(cartItem.item)}
-          className="w-6 h-6 rounded-full bg-[#3531313D] border-none box-border"
+          className="w-6 h-6 rounded-full bg-[#3531313D] border-none box-border cursor-pointer"
         >
           <span className="text-[#222222]">-</span>
         </button>
